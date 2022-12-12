@@ -59,7 +59,7 @@ class TextWidget(Text):
 class Window(Frame):
     def save_as(self):
         self.file_name = None
-        self.file = tk_file_dialog.asksaveasfile(filetypes=[('Python', '*.py'),('Text', '*.txt')], confirmoverwrite=True, defaultextension=".txt")
+        self.file = tk_file_dialog.asksaveasfile(filetypes=[('Text', '*.txt'), ('Python', '*.py')], confirmoverwrite=True, defaultextension=".txt")
         if self.file is None:
             return 
         else:
@@ -92,8 +92,8 @@ class Window(Frame):
         self.open_file = tk_file_dialog.askopenfile(mode = "r", title = "Open A Text File")
         if self.open_file is not None:
             content = self.open_file.read()
-            main_text.delete(0.0, END)
-            main_text.insert(END, content) 
+            self.text_widget.delete(0.0, END)
+            self.text_widget.insert(END, content) 
 
 
     def exit_editor(self):
